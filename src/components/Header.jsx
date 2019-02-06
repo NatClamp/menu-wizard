@@ -1,11 +1,12 @@
 import React from 'react';
+import './Header.css';
 
 const Header = () => {
-    return (
-        <div>
-            <h1>This is a header</h1>
-        </div>
-    );
+  return (
+    <header>
+      <h1 className="header_text">Menu Wizard</h1>
+    </header>
+  );
 };
 
 export default Header;

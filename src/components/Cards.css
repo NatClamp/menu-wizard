@@ -1,0 +1,43 @@
+.recipeCardsContainer {
+  width: 400px;
+  padding: 10px;
+  margin: 20px;
+  background-color: aquamarine;
+}
+
+.card {
+  padding: 20px;
+  margin: 5px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.card_title {
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
+
+.card_description {
+  font-size: 1em;
+}
+
+.card_cookingTime {
+  color: grey;
+}
+
+.card_tags {
+  display: flex;
+  flex-direction: row;
+  color: grey;
+}
+
+.card_tags_single {
+  padding: 5px;
+  margin: 0;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
