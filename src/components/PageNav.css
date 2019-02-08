@@ -1,0 +1,15 @@
+.pageNav {
+  margin: 10px;
+  padding: 5px;
+}
+
+.pageNav__button {
+  padding: 4px 10px;
+  margin: 0 2px;
+  border: 2px aquamarine solid;
+  border-radius: 4px;
+}
+
+.pageNav__button--current {
+  background-color: aquamarine;
+}
