@@ -1,6 +1,7 @@
 .pageNav {
   margin: 10px;
   padding: 5px;
+  text-align: center;
 }
 
 .pageNav__button {
@@ -8,8 +9,10 @@
   margin: 0 2px;
   border: 2px aquamarine solid;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .pageNav__button--current {
   background-color: aquamarine;
+  cursor: auto;
 }
