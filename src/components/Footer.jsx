@@ -4,7 +4,7 @@ import './Footer.css';
 const Footer = () => {
   return (
     <footer>
-      <h1 className="footer_text">This is the footer</h1>
+      <p className="footer_text">© Menu Wizard 2019</p>
     </footer>
   );
 };
