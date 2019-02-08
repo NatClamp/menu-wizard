@@ -23,13 +23,6 @@ header {
   margin: 0;
 }
 
-.navLink {
-  text-decoration: none;
-  cursor: pointer;
-  color: #000;
-  font-size: 1.1em;
-}
-
 .navLink--title {
   font-size: 1.5em;
   font-weight: 400;
