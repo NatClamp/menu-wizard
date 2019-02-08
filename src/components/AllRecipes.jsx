@@ -3,113 +3,20 @@ import './AllRecipes.css';
 import Cards from './Cards';
 import FilterRecipes from './FilterRecipes';
 import PageNav from './PageNav';
+import * as api from '../api';
 
 class AllRecipes extends Component {
   state = {
-    recipes: [
-      {
-        id: 'abcde-1234-abc-1244',
-        name: 'My Recipe',
-        description: 'I nicked this off James Martin',
-        tags: ['vegetarian', 'healthy', 'reheatable', 'quick'],
-        image: 'https://amazon.com/some-link/my-image-1',
-        cookingTime: 200,
-      },
-      {
-        id: 'abcde-1234-abc-76763',
-        name: 'Ham and Eggs',
-        description: "When I'm feeling lazy",
-        tags: ['quick'],
-        image: 'https://amazon.com/some-link/my-image-2',
-        cookingTime: 100,
-      },
-      {
-        id: 'abcde-1234-abc-1245',
-        name: 'My Recipe',
-        description: 'I nicked this off James Martin',
-        tags: ['vegetarian', 'healthy', 'reheatable', 'quick'],
-        image: 'https://amazon.com/some-link/my-image-1',
-        cookingTime: 200,
-      },
-      {
-        id: 'abcde-1234-abc-76764',
-        name: 'Ham and Eggs',
-        description: "When I'm feeling lazy",
-        tags: ['quick'],
-        image: 'https://amazon.com/some-link/my-image-2',
-        cookingTime: 100,
-      },
-      {
-        id: 'abcde-1234-abc-1246',
-        name: 'My Recipe',
-        description: 'I nicked this off James Martin',
-        tags: ['vegetarian', 'healthy', 'reheatable', 'quick'],
-        image: 'https://amazon.com/some-link/my-image-1',
-        cookingTime: 200,
-      },
-      {
-        id: 'abcde-1234-abc-76765',
-        name: 'Ham and Eggs',
-        description: "When I'm feeling lazy",
-        tags: ['quick'],
-        image: 'https://amazon.com/some-link/my-image-2',
-        cookingTime: 100,
-      },
-      {
-        id: 'abcde-1234-abc-1247',
-        name: 'My Recipe',
-        description: 'I nicked this off James Martin',
-        tags: ['vegetarian', 'healthy', 'reheatable', 'quick'],
-        image: 'https://amazon.com/some-link/my-image-1',
-        cookingTime: 200,
-      },
-      {
-        id: 'abcde-1234-abc-76766',
-        name: 'Ham and Eggs',
-        description: "When I'm feeling lazy",
-        tags: ['quick'],
-        image: 'https://amazon.com/some-link/my-image-2',
-        cookingTime: 100,
-      },
-      {
-        id: 'abcde-1234-abc-1248',
-        name: 'My Recipe',
-        description: 'I nicked this off James Martin',
-        tags: ['vegetarian', 'healthy', 'reheatable', 'quick'],
-        image: 'https://amazon.com/some-link/my-image-1',
-        cookingTime: 200,
-      },
-      {
-        id: 'abcde-1234-abc-76767',
-        name: 'Ham and Eggs',
-        description: "When I'm feeling lazy",
-        tags: ['quick'],
-        image: 'https://amazon.com/some-link/my-image-2',
-        cookingTime: 100,
-      },
-      {
-        id: 'abcde-1234-abc-1249',
-        name: 'My Recipe',
-        description: 'I nicked this off James Martin',
-        tags: ['vegetarian', 'healthy', 'reheatable', 'quick'],
-        image: 'https://amazon.com/some-link/my-image-1',
-        cookingTime: 200,
-      },
-      {
-        id: 'abcde-1234-abc-76768',
-        name: 'Ham and Eggs',
-        description: "When I'm feeling lazy",
-        tags: ['quick'],
-        image: 'https://amazon.com/some-link/my-image-2',
-        cookingTime: 100,
-      },
-    ],
-    totalRecipes: 12,
+    isLoading: true,
+    err: null,
+    recipes: [],
+    totalRecipes: 0,
     currentPage: 1,
-    pageNums: [],
+    pageNums: [1],
+    filters: [],
   };
   render() {
-    const { recipes, currentPage, totalRecipes, pageNums } = this.state;
+    const { recipes, currentPage, pageNums } = this.state;
     return (
       <div className="allRecipesContainer">
         <main>
@@ -120,7 +27,7 @@ class AllRecipes extends Component {
             handlePageChange={this.handlePageChange}
           />
         </main>
-        <FilterRecipes />
+        <FilterRecipes handleRecipeFilter={this.handleRecipeFilter} />
       </div>
     );
   }
@@ -131,13 +38,50 @@ class AllRecipes extends Component {
     });
   };
 
-  componentDidMount() {
-    const pageNums = [];
-    for (let i = 1; i <= Math.ceil(this.state.totalRecipes / 10); i++) {
+  fetchRecipes = () => {
+    this.setState({ isLoading: true });
+    api
+      .getRecipes()
+      .then(data => {
+        const recipes =
+          this.state.filters.length > 0
+            ? data.recipes.filter(recipe => {
+                const superset = recipe.tags;
+                const subset = this.state.filters;
+                return subset.every(tag => superset.indexOf(tag) >= 0);
+              })
+            : data.recipes;
+        this.setState({
+          totalRecipes: data.totalRecipes,
+          recipes: recipes,
+          isLoading: false,
+        });
+        this.getPageNumbers();
+      })
+      .catch(err => this.setState({ err }));
+  };
+
+  getPageNumbers = () => {
+    const pageNums = [1];
+    for (let i = 2; i <= Math.ceil(this.state.totalRecipes / 10); i++) {
       pageNums.push(i);
     }
     this.setState({ pageNums });
+  };
+
+  componentDidMount() {
+    this.fetchRecipes();
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.filters !== this.state.filters) {
+      this.fetchRecipes();
+    }
+  }
+
+  handleRecipeFilter = filters => {
+    this.setState({ filters });
+  };
 }
 
 export default AllRecipes;
