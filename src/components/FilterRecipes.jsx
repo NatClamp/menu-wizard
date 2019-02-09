@@ -8,43 +8,57 @@ class FilterRecipes extends Component {
     onlyQuick: false,
   };
   render() {
-    // const { reset } = this.props;
     return (
       <aside className="filterRecipesContainer">
-        <div className="filterRecipes__title">Filter Recipes</div>
         <form className="filterRecipes__form" onSubmit={this.handleSubmit}>
-          <label>
-            Vegetarian
-            <input
-              name="onlyVegetarian"
-              type="checkbox"
-              checked={this.state.onlyVegetarian}
-              onChange={this.handleInputChange}
-            />
-          </label>
-          <br />
-          <label>
-            Reheatable
-            <input
-              name="onlyReheatable"
-              type="checkbox"
-              checked={this.state.onlyReheatable}
-              onChange={this.handleInputChange}
-            />
-          </label>
-          <br />
-          <label>
-            Quick
-            <input
-              name="onlyQuick"
-              type="checkbox"
-              checked={this.state.onlyQuick}
-              onChange={this.handleInputChange}
-            />
-          </label>
-          <br />
-          <button type="submit">Filter</button>
-          <button onClick={() => this.reset()}>Reset</button>
+          <div className="filterRecipes__title">Filter Recipes</div>
+          <div className="filterRecipes__form__choice">
+            <label className="form__label">
+              <input
+                name="onlyVegetarian"
+                type="checkbox"
+                checked={this.state.onlyVegetarian}
+                onChange={this.handleInputChange}
+                className="checkbox"
+              />
+              Vegetarian
+            </label>
+          </div>
+          <div className="filterRecipes__form__choice">
+            <label className="form__label">
+              <input
+                name="onlyReheatable"
+                type="checkbox"
+                checked={this.state.onlyReheatable}
+                onChange={this.handleInputChange}
+                className="checkbox"
+              />
+              Reheatable
+            </label>
+          </div>
+
+          <div className="filterRecipes__form__choice">
+            <label className="form__label">
+              <input
+                name="onlyQuick"
+                type="checkbox"
+                checked={this.state.onlyQuick}
+                onChange={this.handleInputChange}
+                className="checkbox"
+              />
+              Quick
+            </label>
+          </div>
+
+          <button type="submit" className="filterRecipes__form__button">
+            Filter
+          </button>
+          <button
+            onClick={() => this.reset()}
+            className="filterRecipes__form__button"
+          >
+            Reset
+          </button>
         </form>
       </aside>
     );

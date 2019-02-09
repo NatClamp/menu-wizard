@@ -18,17 +18,15 @@ class AllRecipes extends Component {
   render() {
     const { recipes, currentPage, pageNums } = this.state;
     return (
-      <div className="allRecipesContainer">
-        <main>
-          <Cards recipes={recipes} />
-          <PageNav
-            currentPage={currentPage}
-            pageNums={pageNums}
-            handlePageChange={this.handlePageChange}
-          />
-        </main>
+      <main>
         <FilterRecipes handleRecipeFilter={this.handleRecipeFilter} />
-      </div>
+        <Cards recipes={recipes} />
+        <PageNav
+          currentPage={currentPage}
+          pageNums={pageNums}
+          handlePageChange={this.handlePageChange}
+        />
+      </main>
     );
   }
 
