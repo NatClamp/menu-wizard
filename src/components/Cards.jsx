@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from '@reach/router';
 import './Cards.css';
 import food from '../img/corn.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Cards = props => {
   const { recipes } = props;
@@ -22,14 +23,20 @@ const Cards = props => {
                   {recipe.name}
                 </Link>
               </div>
-              <div className="card_description">{recipe.description}</div>
               <div className="card_cookingTime">
-                Cooking Time: {recipe.cookingTime} minutes
+                <FontAwesomeIcon icon="clock" /> {recipe.cookingTime} minutes
               </div>
-              <div className="card_tags">
+              <div
+                className={
+                  recipe.tags.length > 3
+                    ? 'card_tags--many card_tags'
+                    : 'card_tags'
+                }
+              >
                 {recipe.tags.map(tag => {
                   return (
                     <p key={tag} className="card_tags_single">
+                      {/* <FontAwesomeIcon icon="tag" />  */}
                       {tag}
                     </p>
                   );

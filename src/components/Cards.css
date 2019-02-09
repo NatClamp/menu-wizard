@@ -1,22 +1,30 @@
 .recipeCardsContainer {
-  width: 700px;
-  margin: 20px 10px;
+  width: 900px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
 }
 
 .card {
-  margin: 10px;
   background-color: #fff;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  border: #eee solid 1px;
+  max-height: 150px;
+  overflow: hidden;
 }
 
 .card_imageContainer {
-  max-width: 200px;
-  max-height: 100px;
+  max-width: 150px;
+  max-height: 150px;
   overflow: hidden;
-  margin-right: 20px;
+  margin-right: 10px;
+}
+
+.card_image {
+  width: 100%;
 }
 
 .card_infoContainer {
@@ -25,34 +33,64 @@
   align-items: flex-start;
   justify-items: center;
   padding: 5px;
-}
-
-.card_image {
-  max-width: 100%;
+  max-width: 200px;
+  max-height: 200px;
 }
 
 .card_title {
-  font-size: 1.3em;
-}
-
-.card_description {
-  font-size: 1em;
+  font-size: 1.1em;
+  line-height: 1.1em;
+  padding-bottom: 5px;
 }
 
 .card_cookingTime {
   color: grey;
+  padding-bottom: 5px;
 }
 
 .card_tags {
-  display: flex;
-  flex-direction: row;
   color: grey;
+  margin: 0;
+  padding: 0;
+}
+
+.card_tags--many {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 200px;
 }
 
 .card_tags_single {
-  padding: 5px;
-  margin: 0;
-  text-align: left;
-  text-transform: uppercase;
   font-size: 0.8em;
+  background: #eee;
+  border-radius: 3px 0 0 3px;
+  color: #999;
+  display: inline-block;
+  height: 20px;
+  padding: 1px 20px 0 23px;
+  position: relative;
+  margin: 0 10px 2px 0;
+}
+
+.card_tags_single::before {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+  content: '';
+  height: 6px;
+  left: 10px;
+  position: absolute;
+  width: 6px;
+  top: 7px;
+}
+
+.card_tags_single::after {
+  background: #fff;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #eee;
+  border-top: 10px solid transparent;
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
 }
