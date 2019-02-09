@@ -9,7 +9,7 @@ export const getRecipes = async () => {
     recipes: [
       {
         id: 'abcde-1234-abc-1244',
-        name: 'My Recipe',
+        name: 'Beetroot Curry',
         description: 'I nicked this off James Martin',
         tags: ['vegetarian', 'reheatable', 'quick'],
         image: 'https://amazon.com/some-link/my-image-1',
@@ -25,7 +25,7 @@ export const getRecipes = async () => {
       },
       {
         id: 'abcde-1234-abc-1245',
-        name: 'Recipe 3',
+        name: 'Roasted Root Veg',
         description: 'I nicked this off James Martin',
         tags: ['vegetarian'],
         image: 'https://amazon.com/some-link/my-image-1',
@@ -33,7 +33,7 @@ export const getRecipes = async () => {
       },
       {
         id: 'abcde-1234-abc-76764',
-        name: 'Recipe 4',
+        name: 'Brick Lane Burger',
         description: "When I'm feeling lazy",
         tags: ['reheatable'],
         image: 'https://amazon.com/some-link/my-image-2',
@@ -41,7 +41,7 @@ export const getRecipes = async () => {
       },
       {
         id: 'abcde-1234-abc-1246',
-        name: 'Recipe 5',
+        name: 'Aubergine & tomato rogan josh',
         description: 'I nicked this off James Martin',
         tags: ['reheatable', 'quick'],
         image: 'https://amazon.com/some-link/my-image-1',
@@ -49,7 +49,7 @@ export const getRecipes = async () => {
       },
       {
         id: 'abcde-1234-abc-76765',
-        name: 'Recipe 6',
+        name: 'Summer Veg Lasange',
         description: "When I'm feeling lazy",
         tags: ['quick', 'reheatable'],
         image: 'https://amazon.com/some-link/my-image-2',
@@ -57,7 +57,7 @@ export const getRecipes = async () => {
       },
       {
         id: 'abcde-1234-abc-1247',
-        name: 'Recipe 7',
+        name: 'Pot-roast cauliflower',
         description: 'I nicked this off James Martin',
         tags: ['vegetarian', 'healthy', 'reheatable', 'quick'],
         image: 'https://amazon.com/some-link/my-image-1',
@@ -65,7 +65,7 @@ export const getRecipes = async () => {
       },
       {
         id: 'abcde-1234-abc-76766',
-        name: 'Recipe 8',
+        name: 'Parsnip beetroot gratin',
         description: "When I'm feeling lazy",
         tags: ['quick'],
         image: 'https://amazon.com/some-link/my-image-2',
@@ -73,7 +73,7 @@ export const getRecipes = async () => {
       },
       {
         id: 'abcde-1234-abc-1248',
-        name: 'Recipe 9',
+        name: 'Roasted roots & halloumi traybake with courgette tangles',
         description: 'I nicked this off James Martin',
         tags: ['vegetarian', 'healthy', 'reheatable', 'quick'],
         image: 'https://amazon.com/some-link/my-image-1',
@@ -81,7 +81,7 @@ export const getRecipes = async () => {
       },
       {
         id: 'abcde-1234-abc-76767',
-        name: 'Recipe 10',
+        name: 'Roasted radish and runner bean traybake',
         description: "When I'm feeling lazy",
         tags: ['quick'],
         image: 'https://amazon.com/some-link/my-image-2',
@@ -89,7 +89,7 @@ export const getRecipes = async () => {
       },
       {
         id: 'abcde-1234-abc-1249',
-        name: 'My Recipe 11',
+        name: 'Ultimate Lasange',
         description: 'I nicked this off James Martin',
         tags: ['vegetarian', 'healthy', 'reheatable', 'quick'],
         image: 'https://amazon.com/some-link/my-image-1',
@@ -97,7 +97,7 @@ export const getRecipes = async () => {
       },
       {
         id: 'abcde-1234-abc-76768',
-        name: 'Ham and Eggs 3453434',
+        name: 'Smoky veggie chilli',
         description: "When I'm feeling lazy",
         tags: ['quick'],
         image: 'https://amazon.com/some-link/my-image-2',
