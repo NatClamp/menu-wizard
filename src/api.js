@@ -2,6 +2,11 @@
 
 // const BASIC_URL = 'BLAHBLAH';
 
+export const postRecipe = async newRecipe => {
+  //   const {data} = await axios.post(`${BASIC_URL}/recipe`, newRecipe)
+  //   return data;
+};
+
 export const getRecipes = async () => {
   // const { data } = await axios.get(`${BASIC_URL}/recipes`);
   const data = {
