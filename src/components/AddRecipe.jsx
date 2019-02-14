@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './AddRecipe.css';
+// import * as api from '../api';
 
 class AddRecipe extends Component {
   state = {
@@ -26,6 +27,13 @@ class AddRecipe extends Component {
     newIngredient: '',
     newIngredientQuantity: '',
     newIngredientQuantityUnit: '',
+    method: [],
+    newStep: '',
+    stepCount: 1,
+    servings: '',
+    tags: [],
+    images: [],
+    originalRef: '',
   };
   render() {
     return (
@@ -70,6 +78,28 @@ class AddRecipe extends Component {
               type="number"
               name="cookTime"
               value={this.state.cookTime}
+              onChange={this.handleChange}
+            />
+          </label>
+          <br />
+          <label>
+            Servings:
+            <br />
+            <input
+              type="number"
+              name="servings"
+              value={this.state.servings}
+              onChange={this.handleChange}
+            />
+          </label>
+          <br />
+          <label>
+            Original Reference:
+            <br />
+            <input
+              type="text"
+              name="originalRef"
+              value={this.state.originalRef}
               onChange={this.handleChange}
             />
           </label>
@@ -123,6 +153,27 @@ class AddRecipe extends Component {
           </label>
           <br />
 
+          <label>
+            What are the steps to make your recipe?
+            <br />
+            {this.state.method.length > 0 && (
+              <ol>
+                {this.state.method.map(step => {
+                  return <li key={step.step}>{step.description}</li>;
+                })}
+              </ol>
+            )}
+            <input
+              type="text"
+              name="newStep"
+              value={this.state.newStep}
+              onChange={this.handleChange}
+            />
+            <button type="button" onClick={this.handleMethodChange}>
+              +
+            </button>
+          </label>
+          <br />
           <button type="submit">Submit</button>
         </form>
       </main>
@@ -132,7 +183,6 @@ class AddRecipe extends Component {
     const target = event.target;
     const value = target.value;
     const name = target.name;
-    console.log(target, value, name);
     this.setState({
       [name]: value,
     });
@@ -161,9 +211,33 @@ class AddRecipe extends Component {
     }));
   };
 
+  handleMethodChange = () => {
+    const newStep = {
+      step: this.state.stepCount,
+      description: this.state.newStep,
+    };
+    this.setState(prevState => ({
+      method: [...prevState.method, newStep],
+      newStep: '',
+      stepCount: prevState.stepCount + 1,
+    }));
+  };
+
   handleSubmit = event => {
     event.preventDefault();
     console.log('submitting data!');
+    // api.postRecipe({
+    //   name: this.state.title,
+    //   description: this.state.description,
+    //   ingredients: this.state.ingredients,
+    //   method: this.state.method,
+    //   servings: '',
+    //   preparationTime: this.state.prepTime,
+    //   cookingTime: this.state.cookTime,
+    //   tags: [],
+    //   images: '',
+    //   original_reference: '',
+    // });
   };
 }
 
