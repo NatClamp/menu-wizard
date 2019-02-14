@@ -18,7 +18,7 @@ class AllRecipes extends Component {
   render() {
     const { recipes, currentPage, pageNums } = this.state;
     return (
-      <main>
+      <main className='container'>
         <FilterRecipes handleRecipeFilter={this.handleRecipeFilter} />
         <Cards recipes={recipes} />
         <PageNav
