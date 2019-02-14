@@ -4,6 +4,7 @@ import './AddRecipe.css';
 class AddRecipe extends Component {
   state = {
     units: [
+      'unit',
       'tsp',
       'tbsp',
       'fl oz',
@@ -73,16 +74,27 @@ class AddRecipe extends Component {
             />
           </label>
           <br />
+
           <label>
             What ingredients do you need, and what quantity?
             <br />
+            {this.state.ingredients.length > 0 && (
+              <ul>
+                {this.state.ingredients.map(ingredient => {
+                  return (
+                    <li key={ingredient.name}>
+                      {ingredient.name}, {ingredient.quantity}
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
             <input
               type="text"
               name="newIngredient"
               value={this.state.newIngredient}
               onChange={this.handleChange}
             />
-            <br />
             <input
               type="number"
               name="newIngredientQuantity"
@@ -110,6 +122,7 @@ class AddRecipe extends Component {
             </button>
           </label>
           <br />
+
           <button type="submit">Submit</button>
         </form>
       </main>
