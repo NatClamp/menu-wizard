@@ -4,15 +4,26 @@
   text-align: center;
 }
 
-.pageNav__button {
-  padding: 4px 10px;
-  margin: 0 2px;
-  border: 2px aquamarine solid;
-  border-radius: 4px;
-  cursor: pointer;
+.pageNavButton {
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-weight: 600;
 }
 
-.pageNav__button--current {
-  background-color: aquamarine;
+.pageNavButton:hover,
+.pageNavButton:focus {
+  background-color: var(--lightOrange);
+  background-image: linear-gradient(
+    -180deg,
+    var(--lightOrange),
+    var(--midOrange) 90%
+  );
+  background-position: -0.5em;
+  border: 1px solid rgba(27, 31, 35, 0.35);
+}
+
+.pageNavButton--current {
+  background-color: var(--lightOrange);
+  background-image: none;
   cursor: auto;
 }

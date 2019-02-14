@@ -16,8 +16,8 @@ class PageNav extends Component {
               onClick={handlePageChange}
               className={
                 num === Number(currentPage)
-                  ? 'pageNav__button pageNav__button--current'
-                  : 'pageNav__button'
+                  ? 'button pageNavButton pageNavButton--current'
+                  : 'button pageNavButton'
               }
             >
               {num}

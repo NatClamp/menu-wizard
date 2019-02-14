@@ -12,8 +12,8 @@
     align-items: center;
     font-size: 1em;
     max-width: 600px;
-    border: 1px #eee solid;
-    padding: 10px;
+    border: 1px var(--lightGrey) solid;
+    padding: 7px 10px;
   }
 }
 
@@ -42,20 +42,4 @@
 .form__label {
   font-size: 0.9em;
   margin-right: 10px;
-}
-
-.filterRecipes__form__button {
-  background-color: #eee;
-  border: 0;
-  border-radius: 2px;
-  font-size: 0.8em;
-  box-shadow: 0 4px 3px -3px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-  min-width: 60px;
-  padding: 2px;
-  margin: 3px;
-}
-
-.filterRecipes__form__button:focus {
-  box-shadow: none;
 }

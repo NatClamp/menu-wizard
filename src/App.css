@@ -1,3 +1,23 @@
+:root {
+  --lightGrey: rgba(217, 217, 217, 1);
+  --midGrey1: rgba(180, 180, 179, 1);
+  --midGrey2: rgba(125, 123, 122, 1);
+  --darkGrey1: rgba(51, 49, 46, 1);
+  --darkGrey2: rgba(33, 32, 30, 1);
+  --lightGreen: rgba(191, 229, 226, 1);
+  --midGreen1: rgba(149, 213, 208, 1);
+  --midGreen2: rgba(65, 179, 170, 1);
+  --darkGreen1: rgba(21, 149, 139, 1);
+  --darkGreen2: rgba(17, 119, 111, 1);
+  --lightPurple: rgba(213, 197, 225, 1);
+  --midPurple1: rgba(171, 139, 195, 1);
+  --midPurple2: rgba(129, 82, 165, 1);
+  --darkPurple1: rgba(102, 44, 145, 1);
+  --darkPurple2: rgba(75, 33, 106, 1);
+  --lightOrange: rgba(243, 141, 104, 1);
+  --midOrange: rgba(238, 108, 77, 1);
+}
+
 .App {
   height: 100%;
   display: flex;
@@ -10,4 +30,38 @@
   cursor: pointer;
   color: #000;
   font-size: 1.1em;
+}
+
+.button {
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid rgba(27, 31, 35, 0.2);
+  border-radius: 0.25em;
+  padding: 3px 10px;
+  margin: 3px;
+  cursor: pointer;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);
+  color: #24292e;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #e6ebf1;
+  background-image: linear-gradient(-180deg, #f0f3f6, #e6ebf1 90%);
+  background-position: -0.5em;
+  border-color: rgba(27, 31, 35, 0.35);
+}
+
+.button:focus {
+  box-shadow: 0 0 0 0.2em rgba(3, 102, 214, 0.3);
+}
+
+.button:active {
+  background-color: #e9ecef;
+  background-image: none;
+  border-color: rgba(27, 31, 35, 0.35);
+  box-shadow: inset 0 0.15em 0.3em rgba(27, 31, 35, 0.15);
 }

@@ -50,12 +50,12 @@ class FilterRecipes extends Component {
             </label>
           </div>
 
-          <button type="submit" className="filterRecipes__form__button">
+          <button type="submit" className="button filterRecipesButton">
             Filter
           </button>
           <button
             onClick={() => this.reset()}
-            className="filterRecipes__form__button"
+            className="button filterRecipesButton"
           >
             Reset
           </button>
