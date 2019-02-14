@@ -5,7 +5,7 @@ import './AddRecipe.css';
 class AddRecipe extends Component {
   state = {
     units: [
-      'unit',
+      'item',
       'tsp',
       'tbsp',
       'fl oz',
@@ -38,7 +38,7 @@ class AddRecipe extends Component {
   render() {
     return (
       <main className="container">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="addRecipeForm">
           <label>
             What's the name of your recipe?
             <br />
@@ -94,7 +94,7 @@ class AddRecipe extends Component {
           </label>
           <br />
           <label>
-            Original Reference:
+            Original recipe reference:
             <br />
             <input
               type="text"
@@ -132,16 +132,16 @@ class AddRecipe extends Component {
               onChange={this.handleChange}
             />
             <select
+              name="newIngredientQuantityUnit"
               value={this.state.newIngredientQuantityUnit}
-              onChange={this.handleUnitChange}
+              onChange={this.handleChange}
             >
-              {this.state.units.map(unit => {
+              <option defaultselected="true" hidden>
+                Choose a unit
+              </option>
+              {this.state.units.map((unit, index) => {
                 return (
-                  <option
-                    key={unit}
-                    value={unit}
-                    name="newIngredientQuantityUnit"
-                  >
+                  <option key={index} value={unit} id={unit}>
                     {unit}
                   </option>
                 );
@@ -174,6 +174,8 @@ class AddRecipe extends Component {
             </button>
           </label>
           <br />
+
+          <br />
           <button type="submit">Submit</button>
         </form>
       </main>
@@ -185,14 +187,6 @@ class AddRecipe extends Component {
     const name = target.name;
     this.setState({
       [name]: value,
-    });
-  };
-
-  handleUnitChange = event => {
-    const target = event.target;
-    const value = target.value;
-    this.setState({
-      newIngredientQuantityUnit: value,
     });
   };
 
@@ -238,6 +232,18 @@ class AddRecipe extends Component {
     //   images: '',
     //   original_reference: '',
     // });
+    console.log({
+      name: this.state.title,
+      description: this.state.description,
+      ingredients: this.state.ingredients,
+      method: this.state.method,
+      servings: this.state.servings,
+      preparationTime: this.state.prepTime,
+      cookingTime: this.state.cookTime,
+      tags: this.setState.tags,
+      images: this.state.images,
+      original_reference: this.state.originalRef,
+    });
   };
 }
 
