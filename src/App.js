@@ -17,7 +17,7 @@ class App extends Component {
       <div className="App">
         <Header />
 
-        <Router>
+        <Router className="routerDiv">
           <AllRecipes path="/" />
           <SingleRecipe path="/recipes/:recipe_id" />
           <AddRecipe path="/add-recipe" />

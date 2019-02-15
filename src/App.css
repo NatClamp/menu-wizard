@@ -20,6 +20,7 @@
 
 .App {
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,7 +32,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 800px;
+  max-width: 700px;
+  min-width: 300px;
+  margin: 0 auto;
+}
+
+.routerDiv {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .navLink {
@@ -39,6 +49,13 @@
   cursor: pointer;
   color: #000;
   font-size: 1.1em;
+}
+
+.pageTitle {
+  padding: 0;
+  margin: 10px;
+  font-size: 2em;
+  font-weight: 700;
 }
 
 .button {

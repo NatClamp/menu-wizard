@@ -3,7 +3,6 @@ import './PageNav.css';
 
 class PageNav extends Component {
   render() {
-    console.log('rendering...');
     const { currentPage, pageNums, handlePageChange } = this.props;
 
     return (
