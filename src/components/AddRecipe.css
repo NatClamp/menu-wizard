@@ -44,7 +44,7 @@
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .addRecipeForm__input,
@@ -74,7 +74,7 @@
 
 .addRecipeForm__select {
   height: 36px;
-  /* width: 100%; */
+  width: 100%;
 }
 
 @media screen and (min-width: 400px) {

@@ -116,7 +116,7 @@ class AddRecipe extends Component {
                 name="servings"
                 value={this.state.servings}
                 onChange={this.handleChange}
-                className="addRecipeForm__input addRecipeForm__input--inline"
+                className="addRecipeForm__input addRecipeForm__input--inline addRecipeForm__input--inline--last"
               />
             </div>
           </div>
@@ -176,7 +176,7 @@ class AddRecipe extends Component {
                   htmlFor="newIngredientQuantityUnit"
                   className="formLabel formLabel--small"
                 >
-                  Measurement
+                  Unit
                 </label>
 
                 <select
