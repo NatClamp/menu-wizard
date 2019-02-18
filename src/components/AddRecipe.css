@@ -1,5 +1,127 @@
 .addRecipeForm {
   width: 100%;
-  padding: 20px;
-  margin: 20px;
+}
+
+.addRecipeForm__section {
+  border-bottom: 2px var(--midPurple1) solid;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.formTitle {
+  margin: 0;
+  padding: 0;
+}
+
+.formTitle--small {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.addRecipeForm__section__group {
+  display: block;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.addRecipeForm__input {
+  height: 40px;
+}
+
+.addRecipeForm__input,
+.addRecipeForm__textarea {
+  width: 100%;
+  margin-top: 0;
+  padding: 5px;
+  border: 2px solid #0b0c0c;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.addRecipeForm__select {
+  height: 36px;
+  width: 100%;
+}
+
+@media screen and (min-width: 400px) {
+  .radios {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
+
+.radios__item {
+  padding: 10px;
+}
+
+.ingredients__fields {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 0 10px 10px;
+  margin: 5px;
+}
+
+.ingredient,
+.ingredientName {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.ingredient {
+  width: 20%;
+  padding-right: 10px;
+}
+
+.ingredientName {
+  width: 60%;
+}
+
+.method {
+  width: 100%;
+}
+
+.prepTime__section {
+  width: 100%;
+}
+
+.button--submit {
+  background-image: linear-gradient(
+    -180deg,
+    var(--midGreen1),
+    var(--midGreen2) 90%
+  );
+  font-size: 1.1em;
+  color: #fff;
+  padding: 5px 12px;
+}
+
+.button--submit:hover,
+.button--submit:focus {
+  background-color: var(--midGreen2);
+  background-image: linear-gradient(
+    -180deg,
+    var(--midGreen2),
+    var(--midGreen1),
+    90%
+  );
+}
+
+.button:active {
+  background-color: var(--darkGreen1);
+}
+
+.addRecipeform__section__group {
+  width: 100%;
 }
