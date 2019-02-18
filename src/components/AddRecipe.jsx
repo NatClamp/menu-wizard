@@ -45,12 +45,14 @@ class AddRecipe extends Component {
 
     return (
       <main className="container">
-        <h1 className="pageTitle">Add a recipe</h1>
+        <h1 className="pageTitle">Submit recipe</h1>
+
         <form onSubmit={this.handleSubmit} className="addRecipeForm">
           <div className="addRecipeForm__section">
-            <h2 className="formTitle">Title</h2>
             <div className="addRecipeForm__section__group">
-              <label htmlFor="title">Recipe name</label>
+              <label className="formLabel" htmlFor="title">
+                Recipe name
+              </label>
               <input
                 type="text"
                 name="title"
@@ -58,16 +60,14 @@ class AddRecipe extends Component {
                 value={this.state.title}
                 onChange={this.handleChange}
                 className="addRecipeForm__input"
+                placeholder="What's the title of your recipe?"
               />
             </div>
-          </div>
 
-          <br />
-
-          <div className="addRecipeForm__section">
-            <h2 className="formTitle">Description</h2>
             <div className="addRecipeForm__section__group">
-              <label className="formTitle">Recipe description</label>
+              <label htmlFor="description" className="formLabel">
+                Recipe description
+              </label>
               <textarea
                 value={this.state.description}
                 name="description"
@@ -75,293 +75,67 @@ class AddRecipe extends Component {
                 rows="5"
                 id="description"
                 className="addRecipeForm__textarea"
+                placeholder="Share some information about your recipe"
               />
             </div>
           </div>
-
-          <br />
-          {/* 
           <div className="addRecipeForm__section">
-            <label>Preparation time (minutes):</label>
-            <br />
-            <input
-              type="number"
-              name="prepTime"
-              value={this.state.prepTime}
-              onChange={this.handleChange}
-            />
-          </div> */}
-
-          <div className="addRecipeForm__section">
-            <h2 className="formTitle">Timings</h2>
-
-            <fieldset className="PrepTime__section">
-              <legend className="radioLegend">Preparation Time</legend>
-              <div className="radios">
-                <div className="radios__item">
-                  <input
-                    className="radios__input"
-                    id="prepTime10"
-                    name="prepTime"
-                    type="radio"
-                    value="10"
-                    checked={this.state.prepTime === '10'}
-                    onChange={this.handleChange}
-                  />
-                  <label className="radio__label" htmlFor="prepTime10">
-                    1 - 10 minutes
-                  </label>
-                </div>
-                <div className="radios__item">
-                  <input
-                    className="radios__input"
-                    id="prepTime20"
-                    name="prepTime"
-                    type="radio"
-                    value="20"
-                    checked={this.state.prepTime === '20'}
-                    onChange={this.handleChange}
-                  />
-                  <label className="radio__label" htmlFor="prepTime20">
-                    11 - 20 minutes
-                  </label>
-                </div>
-                <div className="radios__item">
-                  <input
-                    className="radios__input"
-                    id="prepTime30"
-                    name="prepTime"
-                    type="radio"
-                    value="30"
-                    checked={this.state.prepTime === '30'}
-                    onChange={this.handleChange}
-                  />
-                  <label className="radio__label" htmlFor="prepTime30">
-                    21 - 30 minutes
-                  </label>
-                </div>
-              </div>
-            </fieldset>
-
-            <fieldset className="cookTime__section">
-              <legend className="radioLegend">Cooking Time</legend>
-              <div className="radios">
-                <div className="radios__item">
-                  <input
-                    className="radios__input"
-                    id="cookTime10"
-                    name="cookTime"
-                    type="radio"
-                    value="10"
-                    checked={this.state.cookTime === '10'}
-                    onChange={this.handleChange}
-                  />
-                  <label className="radio__label" htmlFor="cookTime10">
-                    1 - 10 minutes
-                  </label>
-                </div>
-                <div className="radios__item">
-                  <input
-                    className="radios__input"
-                    id="cookTime20"
-                    name="cookTime"
-                    type="radio"
-                    value="20"
-                    checked={this.state.cookTime === '20'}
-                    onChange={this.handleChange}
-                  />
-                  <label className="radio__label" htmlFor="cookTime20">
-                    11 - 20 minutes
-                  </label>
-                </div>
-                <div className="radios__item">
-                  <input
-                    className="radios__input"
-                    id="cookTime30"
-                    name="cookTime"
-                    type="radio"
-                    value="30"
-                    checked={this.state.cookTime === '30'}
-                    onChange={this.handleChange}
-                  />
-                  <label className="radio__label" htmlFor="cookTime30">
-                    21 - 30 minutes
-                  </label>
-                </div>
-                <div className="radios__item">
-                  <input
-                    className="radios__input"
-                    id="cookTime40"
-                    name="cookTime"
-                    type="radio"
-                    value="40"
-                    checked={this.state.cookTime === '40'}
-                    onChange={this.handleChange}
-                  />
-                  <label className="radio__label" htmlFor="cookTime40">
-                    31 - 40 minutes
-                  </label>
-                </div>
-                <div className="radios__item">
-                  <input
-                    className="radios__input"
-                    id="cookTime50"
-                    name="cookTime"
-                    type="radio"
-                    value="50"
-                    checked={this.state.cookTime === '50'}
-                    onChange={this.handleChange}
-                  />
-                  <label className="radio__label" htmlFor="cookTime50">
-                    41 - 50 minutes
-                  </label>
-                </div>
-                <div className="radios__item">
-                  <input
-                    className="radios__input"
-                    id="cookTime60"
-                    name="cookTime"
-                    type="radio"
-                    value="60"
-                    checked={this.state.cookTime === '60'}
-                    onChange={this.handleChange}
-                  />
-                  <label className="radio__label" htmlFor="cookTime60">
-                    51 - 60 minutes
-                  </label>
-                </div>
-                <div className="radios__item">
-                  <input
-                    className="radios__input"
-                    id="cookTime60+"
-                    name="cookTime"
-                    type="radio"
-                    value="70"
-                    checked={this.state.cookTime === '60+'}
-                    onChange={this.handleChange}
-                  />
-                  <label className="radio__label" htmlFor="cookTime60+">
-                    60+ minutes
-                  </label>
-                </div>
-              </div>
-            </fieldset>
-          </div>
-
-          <br />
-
-          {/* <div className="addRecipeForm__section">
-            <label>
-              Cooking time (minutes):
-              <br />
+            <div className="addRecipeForm__section__group--inline">
+              <label className="formLabel" htmlFor="prepTime">
+                Prep time (mins):
+              </label>
+              <input
+                type="number"
+                name="prepTime"
+                value={this.state.prepTime}
+                onChange={this.handleChange}
+                className="addRecipeForm__input addRecipeForm__input--inline"
+                placeholder="mins"
+              />
+            </div>
+            <div className="addRecipeForm__section__group--inline">
+              <label className="formLabel" htmlFor="cookTime">
+                Cook time (mins):
+              </label>
               <input
                 type="number"
                 name="cookTime"
                 value={this.state.cookTime}
                 onChange={this.handleChange}
+                placeholder="mins"
+                className="addRecipeForm__input addRecipeForm__input--inline"
               />
-            </label>
-          </div> */}
-
-          <br />
-
-          <div className="addRecipeForm__section">
-            <h2 className="formTitle">Servings</h2>
-
-            <div className="radios">
-              <div className="radios__item">
-                <input
-                  className="radios__input"
-                  id="servings1"
-                  name="servings"
-                  type="radio"
-                  value="1"
-                  checked={this.state.servings === '1'}
-                  onChange={this.handleChange}
-                />
-                <label className="radio__label" htmlFor="servings1">
-                  1 serving
-                </label>
-              </div>
-              <div className="radios__item">
-                <input
-                  className="radios__input"
-                  id="servings2"
-                  name="servings"
-                  type="radio"
-                  value="2"
-                  checked={this.state.servings === '2'}
-                  onChange={this.handleChange}
-                />
-                <label className="radio__label" htmlFor="servings2">
-                  2 servings
-                </label>
-              </div>
-              <div className="radios__item">
-                <input
-                  className="radios__input"
-                  id="servings4"
-                  name="servings"
-                  type="radio"
-                  value="4"
-                  checked={this.state.servings === '4'}
-                  onChange={this.handleChange}
-                />
-                <label className="radio__label" htmlFor="servings4">
-                  4 servings
-                </label>
-              </div>
-              <div className="radios__item">
-                <input
-                  className="radios__input"
-                  id="servingsParty"
-                  name="servings"
-                  type="radio"
-                  value="party"
-                  checked={this.state.servings === 'party'}
-                  onChange={this.handleChange}
-                />
-                <label className="radio__label" htmlFor="servingsParty">
-                  Party
-                </label>
-              </div>
             </div>
-          </div>
 
-          {/* <div className="addRecipeForm__section">
-            <label>
-              Servings:
-              <br />
+            <div className="addRecipeForm__section__group--inline">
+              <label htmlFor="servings" className="formLabel">
+                This recipe serves
+              </label>
               <input
                 type="number"
                 name="servings"
                 value={this.state.servings}
                 onChange={this.handleChange}
+                className="addRecipeForm__input addRecipeForm__input--inline"
               />
-            </label>
+            </div>
           </div>
-          <br /> */}
 
           <div className="addRecipeForm__section">
-            <h2 className="formTitle">Original recipe</h2>
-
             <div className="addRecipeForm__section__group">
-              <label className="formTitle">Original recipe reference</label>
+              <label className="formLabel">Original recipe reference</label>
               <input
                 type="text"
                 name="originalRef"
                 value={this.state.originalRef}
                 onChange={this.handleChange}
                 className="addRecipeForm__input"
+                placeholder="e.g. https://www.bbcgoodfood.com/recipes/satay-sweet-potato-curry"
               />
             </div>
           </div>
 
-          <br />
-
           <div className="addRecipeForm__section">
-            <h2 className="formTitle">Ingredients</h2>
-
             <legend className="inputLegend">
               What ingredients do you need, and what quantity?
             </legend>
@@ -382,7 +156,7 @@ class AddRecipe extends Component {
               <div className="ingredient">
                 <label
                   htmlFor="newIngredientQuantity"
-                  className="formTitle formTitle--small"
+                  className="formLabel formLabel--small"
                 >
                   Quantity
                 </label>
@@ -393,13 +167,14 @@ class AddRecipe extends Component {
                   value={this.state.newIngredientQuantity}
                   onChange={this.handleChange}
                   className="addRecipeForm__input"
+                  placeholder="2"
                 />
               </div>
 
               <div className="ingredient">
                 <label
                   htmlFor="newIngredientQuantityUnit"
-                  className="formTitle formTitle--small"
+                  className="formLabel formLabel--small"
                 >
                   Measurement
                 </label>
@@ -412,7 +187,7 @@ class AddRecipe extends Component {
                   className="addRecipeForm__select"
                 >
                   <option defaultselected="true" hidden>
-                    Choose a unit
+                    (none)
                   </option>
                   {this.state.units.map((unit, index) => {
                     return (
@@ -427,7 +202,7 @@ class AddRecipe extends Component {
               <div className="ingredientName">
                 <label
                   htmlFor="newIngredient"
-                  className="formTitle formTitle--small"
+                  className="formLabel formLabel--small"
                 >
                   Ingredient Name
                 </label>
@@ -438,6 +213,7 @@ class AddRecipe extends Component {
                   value={this.state.newIngredient}
                   onChange={this.handleChange}
                   className="addRecipeForm__input"
+                  placeholder="e.g. courgettes"
                 />
               </div>
             </div>
@@ -445,19 +221,14 @@ class AddRecipe extends Component {
             <button
               type="button"
               onClick={this.handleIngredientChange}
-              className="button"
+              className="button button-addToRecipe"
             >
               Add ingredient to recipe
             </button>
           </div>
 
-          <br />
-
           <div className="addRecipeForm__section">
-            <h2 className="formTitle">Method</h2>
             <legend className="inputLegend">Add your method steps</legend>
-
-            <br />
 
             {this.state.method.length > 0 && (
               <ol>
@@ -468,7 +239,7 @@ class AddRecipe extends Component {
             )}
 
             <div className="method">
-              <label htmlFor="newStep" className="formTitle">
+              <label htmlFor="newStep" className="formLabel">
                 Add a step
               </label>
               <input
@@ -478,24 +249,22 @@ class AddRecipe extends Component {
                 value={this.state.newStep}
                 onChange={this.handleChange}
                 className="addRecipeForm__input"
+                placeholder="e.g. Chop the onions finely"
               />
             </div>
 
             <button
               type="button"
               onClick={this.handleMethodChange}
-              className="button"
+              className="button button-addToRecipe"
             >
               Add step to method
             </button>
           </div>
 
-          <br />
-
-          <div className="addRecipeForm__section">
-            <h2 className="formTitle">Tags</h2>
+          <div className="addRecipeForm__section addRecipeForm__section--end">
             <div className="addRecipeform__section__group">
-              <label htmlFor="tags" className="formTitle">
+              <label htmlFor="tags" className="formLabel">
                 Select tags for your recipe
               </label>
               <Select
@@ -508,10 +277,11 @@ class AddRecipe extends Component {
             </div>
           </div>
 
-          <br />
-          <button type="submit" className="button button--submit">
-            Submit
-          </button>
+          <div className="addRecipeForm__section addRecipeForm__section--end">
+            <button type="submit" className="button button--submit">
+              Submit
+            </button>
+          </div>
         </form>
       </main>
     );
@@ -528,7 +298,6 @@ class AddRecipe extends Component {
   handleMultiSelect = tags => {
     const tagNames = tags.map(tag => tag.value);
     this.setState({ tags: tagNames });
-    console.log('options selected: ', tagNames);
   };
 
   handleIngredientChange = event => {

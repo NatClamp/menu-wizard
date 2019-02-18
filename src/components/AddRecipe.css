@@ -1,3 +1,8 @@
+.pageTitle {
+  padding: 10px;
+  margin-top: 20px;
+}
+
 .addRecipeForm {
   width: 100%;
 }
@@ -5,19 +10,24 @@
 .addRecipeForm__section {
   border-bottom: 2px var(--midPurple1) solid;
   padding: 10px;
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  margin: 10px;
 }
 
-.formTitle {
-  margin: 0;
-  padding: 0;
+.addRecipeForm__section--end {
+  border-bottom: none;
 }
 
-.formTitle--small {
+.formLabel {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.formLabel--small {
   font-size: 14px;
   font-weight: 300;
 }
@@ -25,28 +35,46 @@
 .addRecipeForm__section__group {
   display: block;
   width: 100%;
+  margin-bottom: 10px;
+}
+
+.addRecipeForm__section__group--inline {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
   margin-bottom: 30px;
+}
+
+.addRecipeForm__input,
+.addRecipeForm__textarea {
+  width: 100%;
+  background: #f7f7f7;
+  box-shadow: none;
+  border: 1px solid var(--midGrey1);
+  border-radius: 1px;
+  padding: 16px;
+  color: var(--darkGrey1);
+  line-height: 24px;
+  transition: border 0.4s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: 16px;
 }
 
 .addRecipeForm__input {
   height: 40px;
 }
 
-.addRecipeForm__input,
-.addRecipeForm__textarea {
-  width: 100%;
-  margin-top: 0;
-  padding: 5px;
-  border: 2px solid #0b0c0c;
-  border-radius: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+.addRecipeForm__input--inline {
+  width: 30%;
 }
 
 .addRecipeForm__select {
   height: 36px;
-  width: 100%;
+  /* width: 100%; */
 }
 
 @media screen and (min-width: 400px) {
@@ -67,8 +95,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 10px 0 10px 10px;
-  margin: 5px;
+  padding: 10px 0 0 10px;
+  margin-top: 5px;
 }
 
 .ingredient,
@@ -124,4 +152,8 @@
 
 .addRecipeform__section__group {
   width: 100%;
+}
+
+.button-addToRecipe {
+  margin-top: 20px;
 }
